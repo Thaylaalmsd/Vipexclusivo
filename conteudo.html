@@ -1,109 +1,124 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Conteúdo Premium</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineDelírio 🔒</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #000;
+      background-color: #141414;
       color: #fff;
-    }
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-      text-align: center;
-    }
-    .video-preview {
-      position: relative;
-      margin-bottom: 20px;
-    }
-    .video-preview video {
-      width: 100%;
-      filter: blur(20px) brightness(0.4);
-      pointer-events: none;
-      border-radius: 8px;
-    }
-    .overlay-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #fff;
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-    }
-    h1 {
-      color: #e50914;
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-    }
-    .planos {
+      font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
-      gap: 15px;
-      margin-top: 20px;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 2rem;
     }
-    .plano {
-      background-color: #e50914;
-      padding: 15px;
-      border-radius: 8px;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .blurred-video {
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      filter: blur(10px);
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+
+    .plans {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .plan {
+      background-color: #222;
+      border-radius: 10px;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+      transition: transform 0.3s;
+    }
+
+    .plan:hover {
+      transform: scale(1.05);
+    }
+
+    .plan h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #e50914;
+    }
+
+    .plan p {
       font-size: 1rem;
-      font-weight: bold;
-      color: #fff;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
+      margin: 1rem 0;
     }
-    .plano:hover {
-      background-color: #ff2c2c;
+
+    .plan button {
+      background-color: #e50914;
+      border: none;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .plan button:hover {
+      background-color: #f6121d;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="video-preview">
-      <video id="previewVideo" muted autoplay loop></video>
-      <div class="overlay-text">Assine para desbloquear</div>
+  <h1>Conteúdo bloqueado 🔒</h1>
+  <p>Este vídeo está disponível apenas para assinantes VIP. Assine para desbloquear:</p>
+
+  <video id="lockedVideo" class="blurred-video" autoplay muted loop playsinline></video>
+
+  <div class="plans">
+    <div class="plan">
+      <h3>🔓 Semanal</h3>
+      <p>7 dias de acesso completo</p>
+      <button onclick="assinar('semanal')">Assinar R$ 12,90</button>
     </div>
-    <h1>Conteúdo Premium</h1>
-    <p>Para ter acesso a esse vídeo, escolha um dos planos abaixo:</p>
-    <div class="planos">
-      <a href="checkout.html?plano=semanal" class="plano">Plano Semanal – R$12,90</a>
-      <a href="checkout.html?plano=mensal" class="plano">Plano Mensal – R$29,90</a>
-      <a href="checkout.html?plano=anual" class="plano">Plano Anual – R$79,90</a>
+    <div class="plan">
+      <h3>🔓 Mensal</h3>
+      <p>30 dias de conteúdo liberado</p>
+      <button onclick="assinar('mensal')">Assinar R$ 29,90</button>
+    </div>
+    <div class="plan">
+      <h3>🔓 Anual</h3>
+      <p>Desbloqueio total por 1 ano</p>
+      <button onclick="assinar('anual')">Assinar R$ 93,00</button>
     </div>
   </div>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
+    function assinar(plano) {
+      alert(`Você escolheu o plano ${plano.toUpperCase()}. Agora redirecionaríamos para o checkout.`);
+    }
 
-    const videos = {
-      video1: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.11.18.mp4",
-      video2: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.14.44.mp4",
-      video3: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.13.32.mp4",
-      video4: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.02.19.mp4",
-      video5: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.03.13.mp4",
-      video6: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.52.54.mp4",
-      video7: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.29.35.mp4",
-      video8: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.24.58.mp4",
-      video9: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.20.55.mp4",
-      video10: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.24.22.mp4",
-      video11: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-02%20at%2019.36.57%20(1).mp4"
-    };
+    // Pega o parâmetro do vídeo na URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const videoFile = urlParams.get('video');
 
-    const previewVideo = document.getElementById("previewVideo");
-    if (videos[id]) {
-      previewVideo.src = videos[id];
-    } else {
-      previewVideo.poster = "https://via.placeholder.com/600x340/000000/FFFFFF/?text=Vídeo+Indisponível";
+    if (videoFile) {
+      const videoElement = document.getElementById('lockedVideo');
+      videoElement.src = `https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%20${videoFile}`;
     }
   </script>
 </body>
