@@ -1,57 +1,83 @@
-<!-- conteudo.html -->
 <!DOCTYPE html>
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assistir Vídeo</title>
+  <title>Acesso ao Conteúdo</title>
   <style>
     body {
-      margin: 0;
-      background: #000;
+      background-color: #000;
       color: #fff;
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
+      padding: 20px;
+      text-align: center;
     }
-    video {
-      max-width: 100%;
-      max-height: 80vh;
-      border: 3px solid #e50914;
-      border-radius: 10px;
-    }
-    a {
-      margin-top: 20px;
+    h1 {
       color: #e50914;
-      text-decoration: none;
+      margin-bottom: 20px;
+    }
+    .message {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    .plans {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .plan {
+      background-color: #111;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #e50914;
+      width: 200px;
+    }
+    .plan h3 {
+      margin-top: 0;
+      color: #e50914;
+    }
+    .plan p {
+      font-size: 1rem;
+      margin: 10px 0;
+    }
+    .plan button {
+      background-color: #e50914;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .plan button:hover {
+      background-color: #ff1a1a;
     }
   </style>
 </head>
 <body>
-  <video id="videoPlayer" controls autoplay></video>
-  <a href="index.html">⬅ Voltar para a Página Inicial</a>
-
-  <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const videoId = urlParams.get('id');
-
-    const videoMap = {
-      video1: 'https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.11.18.mp4',
-      video2: 'https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.14.44.mp4',
-      video3: 'https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.02.19.mp4'
-    };
-
-    const videoSrc = videoMap[videoId];
-    const player = document.getElementById('videoPlayer');
-
-    if (videoSrc) {
-      player.src = videoSrc;
-    } else {
-      document.body.innerHTML = '<h2>Vídeo não encontrado 😢</h2><a href="index.html">Voltar para início</a>';
-    }
-  </script>
+  <h1>Conteúdo Restrito</h1>
+  <p class="message">Para ter acesso a este conteúdo, você deve assinar um dos planos abaixo:</p>
+  <div class="plans">
+    <div class="plan">
+      <h3>Plano Semanal</h3>
+      <p>R$ 14,90</p>
+      <button>Assinar</button>
+    </div>
+    <div class="plan">
+      <h3>Plano Mensal</h3>
+      <p>R$ 29,90</p>
+      <button>Assinar</button>
+    </div>
+    <div class="plan">
+      <h3>Plano Anual</h3>
+      <p>R$ 199,90</p>
+      <button>Assinar</button>
+    </div>
+  </div>
 </body>
 </html>
