@@ -1,199 +1,229 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CineDelírio</title>
-  <style>
-    body {
-      margin: 0;
-      background-color: #141414;
-      color: #fff;
-      font-family: Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineDelírio - Home</title>
+    <style>
+        body {
+            background-color: #141414;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
 
-    h2 {
-      margin: 1rem;
-      font-size: 1.5rem;
-    }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
 
-    .section {
-      margin-bottom: 2rem;
-    }
+        .video-item {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            margin: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.7);
+        }
 
-    .video-row {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      scroll-behavior: smooth;
-    }
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
 
-    .video-row::-webkit-scrollbar {
-      display: none;
-    }
+        .labels {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 5px 10px;
+            background-color: red;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
 
-    .video-thumb {
-      flex: 0 0 auto;
-      width: 260px;
-      height: 146px;
-      margin: 0 0.5rem;
-      scroll-snap-align: start;
-      position: relative;
-    }
+        .labels.top-1 {
+            top: 10px;
+        }
 
-    .video-thumb video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 10px;
-    }
+        .labels.top-2 {
+            top: 40px;
+        }
 
-    .video-thumb a {
-      display: block;
-      width: 100%;
-      height: 100%;
-      position: relative;
-      z-index: 1;
-    }
+        .labels.in-high {
+            top: 70px;
+        }
 
-    /* Estilo para as etiquetas no canto superior esquerdo */
-    .video-thumb::after {
-      content: attr(data-label);
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background-color: rgba(255, 0, 0, 0.8); /* Fundo vermelho */
-      color: white;
-      padding: 0.5rem;
-      font-size: 1.1rem;
-      border-radius: 4px;
-      z-index: 3;
-    }
+        .video-item a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: transparent;
+            text-decoration: none;
+        }
 
-    .video-thumb button {
-      position: absolute;
-      bottom: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #e50914;
-      color: white;
-      border: none;
-      padding: 0.3rem 0.6rem;
-      font-size: 0.9rem;
-      border-radius: 4px;
-      cursor: pointer;
-      z-index: 2;
-    }
-  </style>
+        .video-item a:hover {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .title {
+            position: absolute;
+            bottom: 30px;
+            left: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .watch-now-btn {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            padding: 10px;
+            background-color: red;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            width: calc(100% - 20px);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .watch-now-btn:hover {
+            background-color: #cc0000;
+        }
+
+        .section-title {
+            text-align: center;
+            color: white;
+            font-size: 2rem;
+            margin-top: 40px;
+            font-weight: bold;
+        }
+
+        .emoji {
+            font-size: 1.2rem;
+            margin-left: 5px;
+        }
+
+    </style>
 </head>
 <body>
-  <div class="section">
-    <h2>🔥 Mais assistidos</h2>
-    <div class="video-row" id="row1">
-      <div class="video-thumb" data-label="Top 1">
-        <a href="conteudo.html?id=1">
-          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.24.58.mp4" autoplay muted loop></video>
-        </a>
-        <button>Assistir agora</button>
-      </div>
-      <div class="video-thumb" data-label="Top 2">
-        <a href="conteudo.html?id=2">
-          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.20.55.mp4" autoplay muted loop></video>
-        </a>
-        <button>Assistir agora</button>
-      </div>
-      <div class="video-thumb" data-label="Top 3">
-        <a href="conteudo.html?id=3">
-          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.24.22.mp4" autoplay muted loop></video>
-        </a>
-        <button>Assistir agora</button>
-      </div>
-      <div class="video-thumb" data-label="Top 4">
-        <a href="conteudo.html?id=4">
-          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-02%20at%2019.36.57%20(1).mp4" autoplay muted loop></video>
-        </a>
-        <button>Assistir agora</button>
-      </div>
+
+    <!-- Em Alta Section -->
+    <div class="section-title">Em Alta <span class="emoji">🔥</span></div>
+    <div class="container">
+        <!-- Video Item 1 -->
+        <div class="video-item">
+            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.24.58.mp4" autoplay muted></video>
+            <div class="labels top-1">Top 1</div>
+            <a href="conteudo.html?id=1"></a>
+            <div class="watch-now-btn">Assistir Agora</div>
+        </div>
+
+        <!-- Video Item 2 -->
+        <div class="video-item">
+            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.20.55.mp4" autoplay muted></video>
+            <div class="labels top-2">Top 2</div>
+            <a href="conteudo.html?id=2"></a>
+            <div class="watch-now-btn">Assistir Agora</div>
+        </div>
     </div>
-  </div>
 
-  <div class="section">
-    <h2>🚀 Em alta</h2>
-    <div class="video-row" id="row2">
-      <div class="video-thumb" data-label="Em Alta">
-        <a href="conteudo.html?id=5">
-          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.02.19.mp4" autoplay muted loop></video>
-        </a>
-        <button>Assistir agora</button>
-      </div>
-      <div class="video-thumb" data-label="Em Alta">
-        <a href="conteudo.html?id=6">
-          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.03.13.mp4" autoplay muted loop></video>
-        </a>
-        <button>Assistir agora</button>
-      </div>
-      <div class="video-thumb" data-label="Em Alta">
-        <a href="conteudo.html?id=7">
-          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.52.54.mp4" autoplay muted loop></video>
-        </a>
-        <button>Assistir agora</button>
-      </div>
-      <div class="video-thumb" data-label="Em Alta">
-        <a href="conteudo.html?id=8">
-          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.29.35.mp4" autoplay muted loop></video>
-        </a>
-        <button>Assistir agora</button>
-      </div>
+    <!-- Recomendados Para Você Section -->
+    <div class="section-title">Recomendados Para Você <span class="emoji">💡</span></div>
+    <div class="container">
+        <!-- Video Item 3 -->
+        <div class="video-item">
+            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.24.22.mp4" autoplay muted></video>
+            <div class="labels in-high">Em alta</div>
+            <a href="conteudo.html?id=3"></a>
+            <div class="watch-now-btn">Assistir Agora</div>
+        </div>
+
+        <!-- Video Item 4 -->
+        <div class="video-item">
+            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-02%20at%2019.36.57%20(1).mp4" autoplay muted></video>
+            <div class="labels top-1">Top 1</div>
+            <a href="conteudo.html?id=4"></a>
+            <div class="watch-now-btn">Assistir Agora</div>
+        </div>
     </div>
-  </div>
 
-  <div class="section">
-    <h2>✨ Recomendado</h2>
-    <div class="video-row" id="row3">
-      <div class="video-thumb" data-label="Recomendado">
-        <a href="conteudo.html?id=9">
-          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.11.18.mp4" autoplay muted loop></video>
-        </a>
-        <button>Assistir agora</button>
-      </div>
-      <div class="video-thumb" data-label="Recomendado">
-        <a href="conteudo.html?id=10">
-          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.14.44.mp4" autoplay muted loop></video>
-        </a>
-        <button>Assistir agora</button>
-      </div>
-      <div class="video-thumb" data-label="Recomendado">
-        <a href="conteudo.html?id=11">
-          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.13.32.mp4" autoplay muted loop></video>
-        </a>
-        <button>Assistir agora</button>
-      </div>
+    <!-- Mais Assistidos Section -->
+    <div class="section-title">Mais Assistidos <span class="emoji">👀</span></div>
+    <div class="container">
+        <!-- Video Item 5 -->
+        <div class="video-item">
+            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.02.19.mp4" autoplay muted></video>
+            <div class="labels top-2">Top 2</div>
+            <a href="conteudo.html?id=5"></a>
+            <div class="watch-now-btn">Assistir Agora</div>
+        </div>
+
+        <!-- Video Item 6 -->
+        <div class="video-item">
+            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.03.13.mp4" autoplay muted></video>
+            <div class="labels in-high">Em alta</div>
+            <a href="conteudo.html?id=6"></a>
+            <div class="watch-now-btn">Assistir Agora</div>
+        </div>
     </div>
-  </div>
 
-  <script>
-    function autoScrollRow(rowId) {
-      const row = document.getElementById(rowId);
-      let scrollAmount = 0;
-      const step = 1;
-      const maxScroll = row.scrollWidth - row.clientWidth;
+    <!-- Mais Assistidos Section -->
+    <div class="section-title">Mais Assistidos <span class="emoji">👀</span></div>
+    <div class="container">
+        <!-- Video Item 7 -->
+        <div class="video-item">
+            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.52.54.mp4" autoplay muted></video>
+            <div class="labels in-high">Em alta</div>
+            <a href="conteudo.html?id=7"></a>
+            <div class="watch-now-btn">Assistir Agora</div>
+        </div>
 
-      setInterval(() => {
-        if (scrollAmount < maxScroll) {
-          scrollAmount += step;
-        } else {
-          scrollAmount = 0;
-        }
-        row.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-      }, 50);
-    }
+        <!-- Video Item 8 -->
+        <div class="video-item">
+            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.29.35.mp4" autoplay muted></video>
+            <div class="labels in-high">Em alta</div>
+            <a href="conteudo.html?id=8"></a>
+            <div class="watch-now-btn">Assistir Agora</div>
+        </div>
+    </div>
 
-    autoScrollRow('row1');
-    autoScrollRow('row2');
-    autoScrollRow('row3');
-  </script>
+    <!-- Recomendados Para Você Section -->
+    <div class="section-title">Recomendados Para Você <span class="emoji">💡</span></div>
+    <div class="container">
+        <!-- Video Item 9 -->
+        <div class="video-item">
+            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.11.18.mp4" autoplay muted></video>
+            <div class="labels in-high">Em alta</div>
+            <a href="conteudo.html?id=9"></a>
+            <div class="watch-now-btn">Assistir Agora</div>
+        </div>
+
+        <!-- Video Item 10 -->
+        <div class="video-item">
+            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.47.43.mp4" autoplay muted></video>
+            <div class="labels top-2">Top 2</div>
+            <a href="conteudo.html?id=10"></a>
+            <div class="watch-now-btn">Assistir Agora</div>
+        </div>
+    </div>
+
 </body>
 </html>
