@@ -1,104 +1,91 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Conteúdo Restrito</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conteúdo Premium</title>
   <style>
     body {
       margin: 0;
       font-family: 'Helvetica Neue', sans-serif;
       background-color: #000;
       color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
       text-align: center;
+    }
+    .video-preview {
       position: relative;
-      overflow: hidden;
+      margin-bottom: 20px;
     }
-
-    .blur-background {
+    .video-preview video {
+      width: 100%;
+      filter: blur(20px) brightness(0.4);
+      pointer-events: none;
+      border-radius: 8px;
+    }
+    .overlay-text {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: -1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     }
-
-    .blur-background video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: blur(15px) brightness(0.5);
-    }
-
-    .content-box {
-      background: rgba(0, 0, 0, 0.7);
-      padding: 30px;
-      border-radius: 12px;
-      z-index: 1;
-    }
-
-    .content-box h1 {
+    h1 {
       color: #e50914;
       margin-bottom: 10px;
     }
-
-    .plans {
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+    .planos {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 15px;
       margin-top: 20px;
     }
-
-    .plans button {
+    .plano {
       background-color: #e50914;
-      border: none;
       padding: 15px;
       border-radius: 8px;
-      color: #fff;
       font-size: 1rem;
-      cursor: pointer;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
       transition: background-color 0.3s ease;
     }
-
-    .plans button:hover {
-      background-color: #bf0810;
-    }
-
-    @media (min-width: 600px) {
-      .plans {
-        flex-direction: row;
-      }
+    .plano:hover {
+      background-color: #ff2c2c;
     }
   </style>
 </head>
 <body>
-  <div class="blur-background">
-    <video id="backgroundVideo" muted autoplay loop></video>
-  </div>
-
-  <div class="content-box">
-    <h1>Conteúdo Restrito</h1>
-    <p>Para ter acesso a este conteúdo, você deve assinar um dos planos abaixo:</p>
-
-    <div class="plans">
-      <button>Assinar Plano Semanal - R$9,90</button>
-      <button>Assinar Plano Mensal - R$29,90</button>
-      <button>Assinar Plano Anual - R$99,90</button>
+  <div class="container">
+    <div class="video-preview">
+      <video id="previewVideo" muted autoplay loop></video>
+      <div class="overlay-text">Assine para desbloquear</div>
+    </div>
+    <h1>Conteúdo Premium</h1>
+    <p>Para ter acesso a esse vídeo, escolha um dos planos abaixo:</p>
+    <div class="planos">
+      <a href="checkout.html?plano=semanal" class="plano">Plano Semanal – R$12,90</a>
+      <a href="checkout.html?plano=mensal" class="plano">Plano Mensal – R$29,90</a>
+      <a href="checkout.html?plano=anual" class="plano">Plano Anual – R$79,90</a>
     </div>
   </div>
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    const videoId = params.get("id");
+    const id = params.get("id");
 
-    const videoMap = {
+    const videos = {
       video1: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.11.18.mp4",
       video2: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.14.44.mp4",
       video3: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.13.32.mp4",
@@ -112,9 +99,11 @@
       video11: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-02%20at%2019.36.57%20(1).mp4"
     };
 
-    const selectedVideo = videoMap[videoId];
-    if (selectedVideo) {
-      document.getElementById("backgroundVideo").src = selectedVideo;
+    const previewVideo = document.getElementById("previewVideo");
+    if (videos[id]) {
+      previewVideo.src = videos[id];
+    } else {
+      previewVideo.poster = "https://via.placeholder.com/600x340/000000/FFFFFF/?text=Vídeo+Indisponível";
     }
   </script>
 </body>
