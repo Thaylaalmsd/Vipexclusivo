@@ -51,20 +51,6 @@
       border-radius: 10px;
     }
 
-    /* Labels em cima do vídeo */
-    .video-info {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background-color: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      padding: 0.3rem 0.6rem;
-      font-size: 1rem;
-      font-weight: bold;
-      border-radius: 5px;
-      z-index: 2;
-    }
-
     .video-thumb button {
       position: absolute;
       bottom: 8px;
@@ -87,42 +73,56 @@
       position: relative;
       z-index: 1;
     }
+
+    .top-tag, .high-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: rgba(255, 0, 0, 0.8);
+      color: white;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border-radius: 5px;
+      z-index: 2;
+    }
+
+    .high-tag {
+      background-color: rgba(255, 165, 0, 0.8); /* Cor laranja para "Em Alta" */
+    }
   </style>
 </head>
 <body>
   <div class="section">
     <h2>🔥 Mais assistidos</h2>
     <div class="video-row" id="row1">
-      <!-- Video 1 -->
+      <!-- VIDEOS DA SEÇÃO 1 AQUI -->
       <div class="video-thumb">
-        <div class="video-info">Top 1</div>
-        <a href="conteudo.html#video1">
-          <video src="https://github.com/Thaylaalmsd/spicyaffection/blob/main/WhatsApp%20Video%202025-04-05%20at%2012.11.18.mp4" muted loop></video>
+        <a href="conteudo.html">
+          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.24.58.mp4" controls></video>
         </a>
+        <div class="top-tag">Top 1</div>
         <button>Assistir Agora</button>
       </div>
-      <!-- Video 2 -->
       <div class="video-thumb">
-        <div class="video-info">Top 2</div>
-        <a href="conteudo.html#video2">
-          <video src="https://github.com/Thaylaalmsd/spicyaffection/blob/main/WhatsApp%20Video%202025-04-05%20at%2012.14.44.mp4" muted loop></video>
+        <a href="conteudo.html">
+          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.20.55.mp4" controls></video>
         </a>
+        <div class="top-tag">Top 2</div>
         <button>Assistir Agora</button>
       </div>
-      <!-- Video 3 -->
       <div class="video-thumb">
-        <div class="video-info">Top 3</div>
-        <a href="conteudo.html#video3">
-          <video src="https://github.com/Thaylaalmsd/spicyaffection/blob/main/WhatsApp%20Video%202025-04-05%20at%2012.13.32.mp4" muted loop></video>
+        <a href="conteudo.html">
+          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.24.22.mp4" controls></video>
         </a>
+        <div class="high-tag">Em Alta</div> <!-- Etiqueta "Em Alta" -->
         <button>Assistir Agora</button>
       </div>
-      <!-- Video 4 -->
       <div class="video-thumb">
-        <div class="video-info">Top 4</div>
-        <a href="conteudo.html#video4">
-          <video src="https://github.com/Thaylaalmsd/spicyaffection/blob/main/WhatsApp%20Video%202025-04-05%20at%2012.02.19.mp4" muted loop></video>
+        <a href="conteudo.html">
+          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-02%20at%2019.36.57%20(1).mp4" controls></video>
         </a>
+        <div class="top-tag">Top 4</div>
         <button>Assistir Agora</button>
       </div>
     </div>
@@ -131,36 +131,33 @@
   <div class="section">
     <h2>🚀 Em alta</h2>
     <div class="video-row" id="row2">
-      <!-- Video 5 -->
+      <!-- VIDEOS DA SEÇÃO 2 AQUI -->
       <div class="video-thumb">
-        <div class="video-info">Em Alta</div>
-        <a href="conteudo.html#video5">
-          <video src="https://github.com/Thaylaalmsd/spicyaffection/blob/main/WhatsApp%20Video%202025-04-05%20at%2012.03.13.mp4" muted loop></video>
+        <a href="conteudo.html">
+          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.02.19.mp4" controls></video>
         </a>
+        <div class="high-tag">Em Alta</div> <!-- Etiqueta "Em Alta" -->
         <button>Assistir Agora</button>
       </div>
-      <!-- Video 6 -->
       <div class="video-thumb">
-        <div class="video-info">Em Alta</div>
-        <a href="conteudo.html#video6">
-          <video src="https://github.com/Thaylaalmsd/spicyaffection/blob/main/WhatsApp%20Video%202025-04-05%20at%2011.52.54.mp4" muted loop></video>
+        <a href="conteudo.html">
+          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.03.13.mp4" controls></video>
         </a>
+        <div class="top-tag">Top 2</div>
         <button>Assistir Agora</button>
       </div>
-      <!-- Video 7 -->
       <div class="video-thumb">
-        <div class="video-info">Em Alta</div>
-        <a href="conteudo.html#video7">
-          <video src="https://github.com/Thaylaalmsd/spicyaffection/blob/main/WhatsApp%20Video%202025-04-05%20at%2011.29.35.mp4" muted loop></video>
+        <a href="conteudo.html">
+          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.52.54.mp4" controls></video>
         </a>
+        <div class="top-tag">Top 3</div>
         <button>Assistir Agora</button>
       </div>
-      <!-- Video 8 -->
       <div class="video-thumb">
-        <div class="video-info">Em Alta</div>
-        <a href="conteudo.html#video8">
-          <video src="https://github.com/Thaylaalmsd/spicyaffection/blob/main/WhatsApp%20Video%202025-04-05%20at%2011.24.58.mp4" muted loop></video>
+        <a href="conteudo.html">
+          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.29.35.mp4" controls></video>
         </a>
+        <div class="top-tag">Top 4</div>
         <button>Assistir Agora</button>
       </div>
     </div>
@@ -169,36 +166,26 @@
   <div class="section">
     <h2>✨ Recomendado</h2>
     <div class="video-row" id="row3">
-      <!-- Video 9 -->
+      <!-- VIDEOS DA SEÇÃO 3 AQUI -->
       <div class="video-thumb">
-        <div class="video-info">Recomendado</div>
-        <a href="conteudo.html#video9">
-          <video src="https://github.com/Thaylaalmsd/spicyaffection/blob/main/WhatsApp%20Video%202025-04-05%20at%2011.24.22.mp4" muted loop></video>
+        <a href="conteudo.html">
+          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.11.18.mp4" controls></video>
         </a>
+        <div class="top-tag">Top 1</div>
         <button>Assistir Agora</button>
       </div>
-      <!-- Video 10 -->
       <div class="video-thumb">
-        <div class="video-info">Recomendado</div>
-        <a href="conteudo.html#video10">
-          <video src="https://github.com/Thaylaalmsd/spicyaffection/blob/main/WhatsApp%20Video%202025-04-05%20at%2011.20.55.mp4" muted loop></video>
+        <a href="conteudo.html">
+          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.14.44.mp4" controls></video>
         </a>
+        <div class="high-tag">Em Alta</div> <!-- Etiqueta "Em Alta" -->
         <button>Assistir Agora</button>
       </div>
-      <!-- Video 11 -->
       <div class="video-thumb">
-        <div class="video-info">Recomendado</div>
-        <a href="conteudo.html#video11">
-          <video src="https://github.com/Thaylaalmsd/spicyaffection/blob/main/WhatsApp%20Video%202025-04-05%20at%2011.24.58.mp4" muted loop></video>
+        <a href="conteudo.html">
+          <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.13.32.mp4" controls></video>
         </a>
-        <button>Assistir Agora</button>
-      </div>
-      <!-- Video 12 -->
-      <div class="video-thumb">
-        <div class="video-info">Recomendado</div>
-        <a href="conteudo.html#video12">
-          <video src="https://github.com/Thaylaalmsd/spicyaffection/blob/main/WhatsApp%20Video%202025-04-02%20at%2019.36.57%20(1).mp4" muted loop></video>
-        </a>
+        <div class="top-tag">Top 3</div>
         <button>Assistir Agora</button>
       </div>
     </div>
