@@ -184,18 +184,23 @@
   </div>
 
   <script>
-    // Movimento automático com possibilidade de arrastar com o dedo
+    // Função para rolar as linhas automaticamente
     function autoScrollRow(rowId) {
       const row = document.getElementById(rowId);
       let scrollAmount = 0;
-      const scrollInterval = setInterval(function() {
-        row.scrollLeft += 1;
-        scrollAmount++;
-        if (scrollAmount >= 100) {
-          clearInterval(scrollInterval);
+      const step = 1; // pixels por passo
+      const maxScroll = row.scrollWidth - row.clientWidth;
+
+      setInterval(() => {
+        if (scrollAmount < maxScroll) {
+          scrollAmount += step;
+        } else {
+          scrollAmount = 0;
         }
-      }, 15);
+        row.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+      }, 50); // tempo de intervalo para rolar
     }
+
     autoScrollRow('row1');
     autoScrollRow('row2');
     autoScrollRow('row3');
