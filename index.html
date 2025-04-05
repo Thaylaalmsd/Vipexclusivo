@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -6,6 +7,9 @@
   <title>CineX</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: 'Helvetica Neue', sans-serif;
@@ -21,7 +25,7 @@
       color: #e50914;
     }
     .carousel {
-      margin: 30px;
+      padding: 10px 20px;
     }
     .carousel h2 {
       font-size: 1.5rem;
@@ -31,44 +35,30 @@
     .carousel-row {
       display: flex;
       gap: 10px;
-      animation: scroll 30s linear infinite;
-    }
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding-bottom: 10px;
     }
     .video-container {
-      position: relative;
-      width: 300px;
       flex: 0 0 auto;
+      width: 250px;
       border-radius: 8px;
       overflow: hidden;
+      background-color: #222;
     }
     .video-container video {
       width: 100%;
-      height: auto;
       display: block;
-    }
-    .rank-label {
-      position: absolute;
-      top: 5px;
-      left: 5px;
-      background-color: #e50914;
-      color: #fff;
-      padding: 2px 6px;
-      font-size: 0.8rem;
-      border-radius: 4px;
     }
     .caption-link {
       display: block;
       text-align: center;
-      margin-top: 5px;
       font-size: 0.9rem;
       color: #fff;
       background-color: #e50914;
-      padding: 5px;
-      border-radius: 4px;
+      padding: 8px;
       text-decoration: none;
+      border-top: 1px solid #000;
     }
     footer {
       display: flex;
@@ -76,11 +66,14 @@
       padding: 20px;
       background-color: #111;
       border-top: 1px solid #333;
+      flex-wrap: wrap;
     }
     footer a {
       color: #fff;
       text-decoration: none;
       font-size: 0.9rem;
+      text-align: center;
+      margin: 10px;
     }
     footer i {
       display: block;
@@ -103,10 +96,6 @@
         <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.14.44.mp4" muted autoplay loop></video>
         <a href="conteudo.html?id=video2" class="caption-link">Assistir Agora</a>
       </div>
-      <div class="video-container">
-        <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.13.32.mp4" muted autoplay loop></video>
-        <a href="conteudo.html?id=video3" class="caption-link">Assistir Agora</a>
-      </div>
     </div>
   </section>
 
@@ -115,50 +104,16 @@
     <div class="carousel-row">
       <div class="video-container">
         <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.02.19.mp4" muted autoplay loop></video>
-        <a href="conteudo.html?id=video4" class="caption-link">Assistir Agora</a>
-      </div>
-      <div class="video-container">
-        <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.03.13.mp4" muted autoplay loop></video>
-        <a href="conteudo.html?id=video5" class="caption-link">Assistir Agora</a>
-      </div>
-      <div class="video-container">
-        <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.52.54.mp4" muted autoplay loop></video>
-        <a href="conteudo.html?id=video6" class="caption-link">Assistir Agora</a>
-      </div>
-      <div class="video-container">
-        <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.29.35.mp4" muted autoplay loop></video>
-        <a href="conteudo.html?id=video7" class="caption-link">Assistir Agora</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="carousel">
-    <h2>❤️ Recomendado</h2>
-    <div class="carousel-row">
-      <div class="video-container">
-        <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.24.58.mp4" muted autoplay loop></video>
-        <a href="conteudo.html?id=video8" class="caption-link">Assistir Agora</a>
-      </div>
-      <div class="video-container">
-        <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.20.55.mp4" muted autoplay loop></video>
-        <a href="conteudo.html?id=video9" class="caption-link">Assistir Agora</a>
-      </div>
-      <div class="video-container">
-        <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.24.22.mp4" muted autoplay loop></video>
-        <a href="conteudo.html?id=video10" class="caption-link">Assistir Agora</a>
-      </div>
-      <div class="video-container">
-        <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-02%20at%2019.36.57%20(1).mp4" muted autoplay loop></video>
-        <a href="conteudo.html?id=video11" class="caption-link">Assistir Agora</a>
+        <a href="conteudo.html?id=video3" class="caption-link">Assistir Agora</a>
       </div>
     </div>
   </section>
 
   <footer>
     <a href="#"><i class="fas fa-home"></i>Início</a>
-    <a href="#meus-conteudos"><i class="fas fa-folder"></i>Meus Conteúdos</a>
-    <a href="#pagamento"><i class="fas fa-credit-card"></i>Pagamento</a>
-    <a href="#mais-assistidos"><i class="fas fa-fire"></i>Mais assistidos</a>
+    <a href="#"><i class="fas fa-folder"></i>Meus Conteúdos</a>
+    <a href="#"><i class="fas fa-credit-card"></i>Pagamento</a>
+    <a href="#"><i class="fas fa-fire"></i>Mais assistidos</a>
   </footer>
 </body>
 </html>
