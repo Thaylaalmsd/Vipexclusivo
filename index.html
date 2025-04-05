@@ -37,8 +37,8 @@
 
     .video-thumb {
       flex: 0 0 auto;
-      width: 240px;
-      height: 135px;
+      width: 260px;
+      height: 146px;
       margin: 0 0.5rem;
       scroll-snap-align: start;
       position: relative;
@@ -51,24 +51,29 @@
       border-radius: 10px;
     }
 
-    .top-tag, .high-tag {
+    .video-thumb a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Estilo para as etiquetas no canto superior esquerdo */
+    .video-thumb::after {
+      content: attr(data-label);
       position: absolute;
       top: 10px;
       left: 10px;
-      background-color: rgba(255, 0, 0, 0.8);
+      background-color: rgba(255, 0, 0, 0.8); /* Fundo vermelho */
       color: white;
-      padding: 0.3rem 0.6rem;
-      font-size: 0.9rem;
-      font-weight: bold;
-      border-radius: 5px;
-      z-index: 2;
+      padding: 0.5rem;
+      font-size: 1.1rem;
+      border-radius: 4px;
+      z-index: 3;
     }
 
-    .high-tag {
-      background-color: rgba(255, 165, 0, 0.8); /* Cor laranja para "Em Alta" */
-    }
-
-    .btn-assistir {
+    .video-thumb button {
       position: absolute;
       bottom: 8px;
       left: 50%;
@@ -88,34 +93,29 @@
   <div class="section">
     <h2>🔥 Mais assistidos</h2>
     <div class="video-row" id="row1">
-      <!-- VIDEOS DA SEÇÃO 1 AQUI -->
-      <div class="video-thumb">
-        <a href="conteudo.html">
+      <div class="video-thumb" data-label="Top 1">
+        <a href="conteudo.html?id=1">
           <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.24.58.mp4" autoplay muted loop></video>
         </a>
-        <div class="top-tag">Top 1</div>
-        <button class="btn-assistir">Assistir Agora</button>
+        <button>Assistir agora</button>
       </div>
-      <div class="video-thumb">
-        <a href="conteudo.html">
+      <div class="video-thumb" data-label="Top 2">
+        <a href="conteudo.html?id=2">
           <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.20.55.mp4" autoplay muted loop></video>
         </a>
-        <div class="top-tag">Top 2</div>
-        <button class="btn-assistir">Assistir Agora</button>
+        <button>Assistir agora</button>
       </div>
-      <div class="video-thumb">
-        <a href="conteudo.html">
+      <div class="video-thumb" data-label="Top 3">
+        <a href="conteudo.html?id=3">
           <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.24.22.mp4" autoplay muted loop></video>
         </a>
-        <div class="high-tag">Em Alta</div>
-        <button class="btn-assistir">Assistir Agora</button>
+        <button>Assistir agora</button>
       </div>
-      <div class="video-thumb">
-        <a href="conteudo.html">
+      <div class="video-thumb" data-label="Top 4">
+        <a href="conteudo.html?id=4">
           <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-02%20at%2019.36.57%20(1).mp4" autoplay muted loop></video>
         </a>
-        <div class="top-tag">Top 4</div>
-        <button class="btn-assistir">Assistir Agora</button>
+        <button>Assistir agora</button>
       </div>
     </div>
   </div>
@@ -123,34 +123,29 @@
   <div class="section">
     <h2>🚀 Em alta</h2>
     <div class="video-row" id="row2">
-      <!-- VIDEOS DA SEÇÃO 2 AQUI -->
-      <div class="video-thumb">
-        <a href="conteudo.html">
+      <div class="video-thumb" data-label="Em Alta">
+        <a href="conteudo.html?id=5">
           <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.02.19.mp4" autoplay muted loop></video>
         </a>
-        <div class="high-tag">Em Alta</div>
-        <button class="btn-assistir">Assistir Agora</button>
+        <button>Assistir agora</button>
       </div>
-      <div class="video-thumb">
-        <a href="conteudo.html">
+      <div class="video-thumb" data-label="Em Alta">
+        <a href="conteudo.html?id=6">
           <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.03.13.mp4" autoplay muted loop></video>
         </a>
-        <div class="top-tag">Top 2</div>
-        <button class="btn-assistir">Assistir Agora</button>
+        <button>Assistir agora</button>
       </div>
-      <div class="video-thumb">
-        <a href="conteudo.html">
+      <div class="video-thumb" data-label="Em Alta">
+        <a href="conteudo.html?id=7">
           <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.52.54.mp4" autoplay muted loop></video>
         </a>
-        <div class="top-tag">Top 3</div>
-        <button class="btn-assistir">Assistir Agora</button>
+        <button>Assistir agora</button>
       </div>
-      <div class="video-thumb">
-        <a href="conteudo.html">
+      <div class="video-thumb" data-label="Em Alta">
+        <a href="conteudo.html?id=8">
           <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.29.35.mp4" autoplay muted loop></video>
         </a>
-        <div class="top-tag">Top 4</div>
-        <button class="btn-assistir">Assistir Agora</button>
+        <button>Assistir agora</button>
       </div>
     </div>
   </div>
@@ -158,37 +153,32 @@
   <div class="section">
     <h2>✨ Recomendado</h2>
     <div class="video-row" id="row3">
-      <!-- VIDEOS DA SEÇÃO 3 AQUI -->
-      <div class="video-thumb">
-        <a href="conteudo.html">
+      <div class="video-thumb" data-label="Recomendado">
+        <a href="conteudo.html?id=9">
           <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.11.18.mp4" autoplay muted loop></video>
         </a>
-        <div class="top-tag">Top 1</div>
-        <button class="btn-assistir">Assistir Agora</button>
+        <button>Assistir agora</button>
       </div>
-      <div class="video-thumb">
-        <a href="conteudo.html">
+      <div class="video-thumb" data-label="Recomendado">
+        <a href="conteudo.html?id=10">
           <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.14.44.mp4" autoplay muted loop></video>
         </a>
-        <div class="high-tag">Em Alta</div>
-        <button class="btn-assistir">Assistir Agora</button>
+        <button>Assistir agora</button>
       </div>
-      <div class="video-thumb">
-        <a href="conteudo.html">
+      <div class="video-thumb" data-label="Recomendado">
+        <a href="conteudo.html?id=11">
           <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.13.32.mp4" autoplay muted loop></video>
         </a>
-        <div class="top-tag">Top 3</div>
-        <button class="btn-assistir">Assistir Agora</button>
+        <button>Assistir agora</button>
       </div>
     </div>
   </div>
 
   <script>
-    // Função para rolar as linhas automaticamente
     function autoScrollRow(rowId) {
       const row = document.getElementById(rowId);
       let scrollAmount = 0;
-      const step = 1; // pixels por passo
+      const step = 1;
       const maxScroll = row.scrollWidth - row.clientWidth;
 
       setInterval(() => {
@@ -198,7 +188,7 @@
           scrollAmount = 0;
         }
         row.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-      }, 50); // tempo de intervalo para rolar
+      }, 50);
     }
 
     autoScrollRow('row1');
