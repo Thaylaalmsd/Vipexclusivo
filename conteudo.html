@@ -19,23 +19,32 @@
       padding: 2rem;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1.2rem;
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
       margin-bottom: 2rem;
     }
 
     .blurred-video {
       width: 100%;
-      max-width: 720px;
       height: auto;
       filter: blur(10px);
       border-radius: 10px;
-      margin-bottom: 2rem;
+    }
+
+    .locked-message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #fff;
+      backdrop-filter: blur(5px);
     }
 
     .plans {
@@ -84,24 +93,24 @@
   </style>
 </head>
 <body>
-  <h1>Conteúdo bloqueado 🔒</h1>
-  <p>Este vídeo está disponível apenas para assinantes VIP. Assine para desbloquear:</p>
-
-  <video id="lockedVideo" class="blurred-video" autoplay muted loop playsinline></video>
+  <div class="video-container">
+    <video id="lockedVideo" class="blurred-video" autoplay muted loop playsinline></video>
+    <div class="locked-message">Conteúdo bloqueado</div>
+  </div>
 
   <div class="plans">
     <div class="plan">
-      <h3>🔓 Semanal</h3>
+      <h3>Semanal</h3>
       <p>7 dias de acesso completo</p>
       <button onclick="assinar('semanal')">Assinar R$ 12,90</button>
     </div>
     <div class="plan">
-      <h3>🔓 Mensal</h3>
+      <h3>Mensal</h3>
       <p>30 dias de conteúdo liberado</p>
       <button onclick="assinar('mensal')">Assinar R$ 29,90</button>
     </div>
     <div class="plan">
-      <h3>🔓 Anual</h3>
+      <h3>Anual</h3>
       <p>Desbloqueio total por 1 ano</p>
       <button onclick="assinar('anual')">Assinar R$ 93,00</button>
     </div>
@@ -112,7 +121,6 @@
       alert(`Você escolheu o plano ${plano.toUpperCase()}. Agora redirecionaríamos para o checkout.`);
     }
 
-    // Pega o parâmetro do vídeo na URL
     const urlParams = new URLSearchParams(window.location.search);
     const videoFile = urlParams.get('video');
 
