@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CineDelírio 🍿</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       background-color: #141414;
@@ -14,59 +12,54 @@
       margin: 0;
       padding: 0;
     }
-
     header {
       background-color: #000;
       padding: 1rem;
       text-align: center;
     }
-
     header h1 {
       margin: 0;
       font-size: 2rem;
     }
-
     section {
       margin: 2rem;
     }
-
     h2 {
       margin-bottom: 1rem;
     }
-
     .video-row {
       display: flex;
-      overflow-x: auto;
       gap: 1rem;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      animation: scroll-left 30s linear infinite;
     }
-
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
     .video-card {
       flex: 0 0 auto;
       width: 250px;
       position: relative;
       cursor: pointer;
     }
-
     .video-card video {
       width: 100%;
-      height: auto;
+      height: 160px;
       border-radius: 8px;
       object-fit: cover;
     }
-
-    .button-wrapper {
-      text-align: center;
+    .video-card button {
       margin-top: 0.5rem;
-    }
-
-    .watch-button {
-      background-color: #e50914;
+      width: 100%;
+      padding: 0.5rem;
+      background-color: red;
       color: white;
       border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
+      border-radius: 4px;
       font-weight: bold;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -76,96 +69,75 @@
     <h1>CineDelírio 🍿</h1>
   </header>
 
+  <!-- Mais assistidos -->
   <section>
     <h2>🔥 Mais assistidos</h2>
     <div class="video-row">
       <div class="video-card">
         <video autoplay muted loop src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.24.58.mp4"></video>
-        <div class="button-wrapper">
-          <button class="watch-button" onclick="goToContent('WhatsApp Video 2025-04-05 at 11.24.58.mp4')">Assistir agora</button>
-        </div>
+        <button onclick="goToContent('11.24.58')">Assistir Agora</button>
       </div>
       <div class="video-card">
         <video autoplay muted loop src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.20.55.mp4"></video>
-        <div class="button-wrapper">
-          <button class="watch-button" onclick="goToContent('WhatsApp Video 2025-04-05 at 11.20.55.mp4')">Assistir agora</button>
-        </div>
+        <button onclick="goToContent('11.20.55')">Assistir Agora</button>
       </div>
       <div class="video-card">
         <video autoplay muted loop src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.24.22.mp4"></video>
-        <div class="button-wrapper">
-          <button class="watch-button" onclick="goToContent('WhatsApp Video 2025-04-05 at 11.24.22.mp4')">Assistir agora</button>
-        </div>
+        <button onclick="goToContent('11.24.22')">Assistir Agora</button>
       </div>
       <div class="video-card">
-        <video autoplay muted loop src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-02%20at%2019.36.57%20(1).mp4"></video>
-        <div class="button-wrapper">
-          <button class="watch-button" onclick="goToContent('WhatsApp Video 2025-04-02 at 19.36.57 (1).mp4')">Assistir agora</button>
-        </div>
+        <video autoplay muted loop src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-02%20at%2019.36.57%20%281%29.mp4"></video>
+        <button onclick="goToContent('19.36.57')">Assistir Agora</button>
       </div>
     </div>
   </section>
 
+  <!-- Em alta -->
   <section>
     <h2>🚀 Em alta</h2>
     <div class="video-row">
       <div class="video-card">
         <video autoplay muted loop src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.02.19.mp4"></video>
-        <div class="button-wrapper">
-          <button class="watch-button" onclick="goToContent('WhatsApp Video 2025-04-05 at 12.02.19.mp4')">Assistir agora</button>
-        </div>
+        <button onclick="goToContent('12.02.19')">Assistir Agora</button>
       </div>
       <div class="video-card">
         <video autoplay muted loop src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.03.13.mp4"></video>
-        <div class="button-wrapper">
-          <button class="watch-button" onclick="goToContent('WhatsApp Video 2025-04-05 at 12.03.13.mp4')">Assistir agora</button>
-        </div>
+        <button onclick="goToContent('12.03.13')">Assistir Agora</button>
       </div>
       <div class="video-card">
         <video autoplay muted loop src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.52.54.mp4"></video>
-        <div class="button-wrapper">
-          <button class="watch-button" onclick="goToContent('WhatsApp Video 2025-04-05 at 11.52.54.mp4')">Assistir agora</button>
-        </div>
+        <button onclick="goToContent('11.52.54')">Assistir Agora</button>
       </div>
       <div class="video-card">
         <video autoplay muted loop src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.29.35.mp4"></video>
-        <div class="button-wrapper">
-          <button class="watch-button" onclick="goToContent('WhatsApp Video 2025-04-05 at 11.29.35.mp4')">Assistir agora</button>
-        </div>
+        <button onclick="goToContent('11.29.35')">Assistir Agora</button>
       </div>
     </div>
   </section>
 
+  <!-- Recomendado -->
   <section>
     <h2>💋 Recomendado</h2>
     <div class="video-row">
       <div class="video-card">
         <video autoplay muted loop src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.11.18.mp4"></video>
-        <div class="button-wrapper">
-          <button class="watch-button" onclick="goToContent('WhatsApp Video 2025-04-05 at 12.11.18.mp4')">Assistir agora</button>
-        </div>
+        <button onclick="goToContent('12.11.18')">Assistir Agora</button>
       </div>
       <div class="video-card">
         <video autoplay muted loop src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.14.44.mp4"></video>
-        <div class="button-wrapper">
-          <button class="watch-button" onclick="goToContent('WhatsApp Video 2025-04-05 at 12.14.44.mp4')">Assistir agora</button>
-        </div>
+        <button onclick="goToContent('12.14.44')">Assistir Agora</button>
       </div>
       <div class="video-card">
         <video autoplay muted loop src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.13.32.mp4"></video>
-        <div class="button-wrapper">
-          <button class="watch-button" onclick="goToContent('WhatsApp Video 2025-04-05 at 12.13.32.mp4')">Assistir agora</button>
-        </div>
+        <button onclick="goToContent('12.13.32')">Assistir Agora</button>
       </div>
     </div>
   </section>
 
   <script>
-    function goToContent(videoTitle) {
-      const url = `conteudo.html?video=${encodeURIComponent(videoTitle)}`;
-      window.location.href = url;
+    function goToContent(videoId) {
+      window.location.href = `conteudo.html?video=${videoId}`;
     }
   </script>
 </body>
-
 </html>
