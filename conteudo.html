@@ -3,81 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acesso ao Conteúdo</title>
+  <title>Conteúdo Restrito</title>
   <style>
     body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
       background-color: #000;
       color: #fff;
-      font-family: 'Arial', sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      padding: 20px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    h1 {
+
+    .blur-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .blur-background video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(15px) brightness(0.5);
+    }
+
+    .content-box {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 12px;
+      z-index: 1;
+    }
+
+    .content-box h1 {
       color: #e50914;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
-    .message {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-    }
+
     .plans {
       display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
     }
-    .plan {
-      background-color: #111;
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid #e50914;
-      width: 200px;
-    }
-    .plan h3 {
-      margin-top: 0;
-      color: #e50914;
-    }
-    .plan p {
-      font-size: 1rem;
-      margin: 10px 0;
-    }
-    .plan button {
+
+    .plans button {
       background-color: #e50914;
-      color: white;
       border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
+      padding: 15px;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1rem;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
-    .plan button:hover {
-      background-color: #ff1a1a;
+
+    .plans button:hover {
+      background-color: #bf0810;
+    }
+
+    @media (min-width: 600px) {
+      .plans {
+        flex-direction: row;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Conteúdo Restrito</h1>
-  <p class="message">Para ter acesso a este conteúdo, você deve assinar um dos planos abaixo:</p>
-  <div class="plans">
-    <div class="plan">
-      <h3>Plano Semanal</h3>
-      <p>R$ 14,90</p>
-      <button>Assinar</button>
-    </div>
-    <div class="plan">
-      <h3>Plano Mensal</h3>
-      <p>R$ 29,90</p>
-      <button>Assinar</button>
-    </div>
-    <div class="plan">
-      <h3>Plano Anual</h3>
-      <p>R$ 199,90</p>
-      <button>Assinar</button>
+  <div class="blur-background">
+    <video id="backgroundVideo" muted autoplay loop></video>
+  </div>
+
+  <div class="content-box">
+    <h1>Conteúdo Restrito</h1>
+    <p>Para ter acesso a este conteúdo, você deve assinar um dos planos abaixo:</p>
+
+    <div class="plans">
+      <button>Assinar Plano Semanal - R$9,90</button>
+      <button>Assinar Plano Mensal - R$29,90</button>
+      <button>Assinar Plano Anual - R$99,90</button>
     </div>
   </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const videoId = params.get("id");
+
+    const videoMap = {
+      video1: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.11.18.mp4",
+      video2: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.14.44.mp4",
+      video3: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.13.32.mp4",
+      video4: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.02.19.mp4",
+      video5: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.03.13.mp4",
+      video6: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.52.54.mp4",
+      video7: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.29.35.mp4",
+      video8: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.24.58.mp4",
+      video9: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.20.55.mp4",
+      video10: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.24.22.mp4",
+      video11: "https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-02%20at%2019.36.57%20(1).mp4"
+    };
+
+    const selectedVideo = videoMap[videoId];
+    if (selectedVideo) {
+      document.getElementById("backgroundVideo").src = selectedVideo;
+    }
+  </script>
 </body>
 </html>
