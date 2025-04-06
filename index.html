@@ -13,217 +13,233 @@
             padding: 0;
         }
 
+        /* Layout geral */
         .container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            padding: 20px;
+            justify-content: space-between;
+            margin: 20px;
         }
 
-        .video-item {
-            position: relative;
-            width: 300px;
-            height: 200px;
-            margin: 15px;
-            border-radius: 10px;
+        /* Estilo das abas verticais */
+        .content-section {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .carousel {
+            display: flex;
             overflow: hidden;
-            background: rgba(0, 0, 0, 0.7);
+            position: relative;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 1s ease; /* Diminuí a velocidade do carrossel para 1s */
+        }
+
+        .carousel-item {
+            position: relative;
+            min-width: 250px;
+            margin-right: 15px;
+            box-sizing: border-box;
         }
 
         video {
             width: 100%;
-            height: 100%;
+            height: 180px; /* Definindo altura fixa para todos os vídeos */
             object-fit: cover;
             border-radius: 10px;
+            cursor: pointer;
         }
 
-        .labels {
+        .label {
             position: absolute;
             top: 10px;
             left: 10px;
-            padding: 5px 10px;
             background-color: red;
             color: white;
+            padding: 5px;
             font-weight: bold;
             border-radius: 5px;
-            font-size: 0.9rem;
-        }
-
-        .labels.top-1 {
-            top: 10px;
-        }
-
-        .labels.top-2 {
-            top: 40px;
-        }
-
-        .labels.in-high {
-            top: 70px;
-        }
-
-        .video-item a {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.3);
-            color: transparent;
-            text-decoration: none;
-        }
-
-        .video-item a:hover {
-            background-color: rgba(0, 0, 0, 0.6);
-        }
-
-        .title {
-            position: absolute;
-            bottom: 30px;
-            left: 10px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 5px 10px;
-            border-radius: 5px;
+            font-size: 1rem;
         }
 
         .watch-now-btn {
             position: absolute;
             bottom: 10px;
             left: 10px;
-            padding: 10px;
             background-color: red;
             color: white;
-            font-weight: bold;
-            font-size: 1rem;
+            padding: 10px;
             border-radius: 5px;
-            text-align: center;
-            width: calc(100% - 20px);
             cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .watch-now-btn:hover {
-            background-color: #cc0000;
-        }
-
-        .section-title {
-            text-align: center;
-            color: white;
-            font-size: 2rem;
-            margin-top: 40px;
             font-weight: bold;
+            text-align: center;
+            text-decoration: none; /* Removido o sublinhado */
         }
 
-        .emoji {
-            font-size: 1.2rem;
-            margin-left: 5px;
+        /* Remover a aceleração do carrossel ao passar o mouse */
+        .carousel:hover .carousel-inner {
+            animation: none;
         }
 
+        /* Efeito carrossel */
+        .carousel-inner {
+            animation: slide 30s infinite; /* Aumentei o tempo de animação para 30s */
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-100%); }
+            50% { transform: translateX(-200%); }
+            75% { transform: translateX(-300%); }
+            100% { transform: translateX(-400%); }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Em Alta Section -->
-    <div class="section-title">Em Alta <span class="emoji">🔥</span></div>
-    <div class="container">
-        <!-- Video Item 1 -->
-        <div class="video-item">
-            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.24.58.mp4" autoplay muted></video>
-            <div class="labels top-1">Top 1</div>
-            <a href="conteudo.html?id=1"></a>
-            <div class="watch-now-btn">Assistir Agora</div>
-        </div>
+<div class="container">
 
-        <!-- Video Item 2 -->
-        <div class="video-item">
-            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.20.55.mp4" autoplay muted></video>
-            <div class="labels top-2">Top 2</div>
-            <a href="conteudo.html?id=2"></a>
-            <div class="watch-now-btn">Assistir Agora</div>
+    <!-- Mais Assistidos -->
+    <div class="content-section">
+        <div class="section-title">🔥 Mais Assistidos</div>
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <div class="video-container">
+                        <a href="conteudo.html">
+                            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.24.58.mp4" autoplay muted></video>
+                        </a>
+                    </div>
+                    <div class="label">Top 1</div>
+                    <a href="conteudo.html" class="watch-now-btn">Continuar Assistindo</a>
+                </div>
+                <div class="carousel-item">
+                    <div class="video-container">
+                        <a href="conteudo.html">
+                            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.20.55.mp4" autoplay muted></video>
+                        </a>
+                    </div>
+                    <div class="label">Top 2</div>
+                    <a href="conteudo.html" class="watch-now-btn">Continuar Assistindo</a>
+                </div>
+                <div class="carousel-item">
+                    <div class="video-container">
+                        <a href="conteudo.html">
+                            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.24.22.mp4" autoplay muted></video>
+                        </a>
+                    </div>
+                    <div class="label">Em Alta</div>
+                    <a href="conteudo.html" class="watch-now-btn">Continuar Assistindo</a>
+                </div>
+                <div class="carousel-item">
+                    <div class="video-container">
+                        <a href="conteudo.html">
+                            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-02%20at%2019.36.57%20(1).mp4" autoplay muted></video>
+                        </a>
+                    </div>
+                    <div class="label">Em Alta</div>
+                    <a href="conteudo.html" class="watch-now-btn">Continuar Assistindo</a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Recomendados Para Você Section -->
-    <div class="section-title">Recomendados Para Você <span class="emoji">💡</span></div>
-    <div class="container">
-        <!-- Video Item 3 -->
-        <div class="video-item">
-            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.24.22.mp4" autoplay muted></video>
-            <div class="labels in-high">Em alta</div>
-            <a href="conteudo.html?id=3"></a>
-            <div class="watch-now-btn">Assistir Agora</div>
-        </div>
-
-        <!-- Video Item 4 -->
-        <div class="video-item">
-            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-02%20at%2019.36.57%20(1).mp4" autoplay muted></video>
-            <div class="labels top-1">Top 1</div>
-            <a href="conteudo.html?id=4"></a>
-            <div class="watch-now-btn">Assistir Agora</div>
-        </div>
-    </div>
-
-    <!-- Mais Assistidos Section -->
-    <div class="section-title">Mais Assistidos <span class="emoji">👀</span></div>
-    <div class="container">
-        <!-- Video Item 5 -->
-        <div class="video-item">
-            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.02.19.mp4" autoplay muted></video>
-            <div class="labels top-2">Top 2</div>
-            <a href="conteudo.html?id=5"></a>
-            <div class="watch-now-btn">Assistir Agora</div>
-        </div>
-
-        <!-- Video Item 6 -->
-        <div class="video-item">
-            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.03.13.mp4" autoplay muted></video>
-            <div class="labels in-high">Em alta</div>
-            <a href="conteudo.html?id=6"></a>
-            <div class="watch-now-btn">Assistir Agora</div>
-        </div>
-    </div>
-
-    <!-- Mais Assistidos Section -->
-    <div class="section-title">Mais Assistidos <span class="emoji">👀</span></div>
-    <div class="container">
-        <!-- Video Item 7 -->
-        <div class="video-item">
-            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.52.54.mp4" autoplay muted></video>
-            <div class="labels in-high">Em alta</div>
-            <a href="conteudo.html?id=7"></a>
-            <div class="watch-now-btn">Assistir Agora</div>
-        </div>
-
-        <!-- Video Item 8 -->
-        <div class="video-item">
-            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.29.35.mp4" autoplay muted></video>
-            <div class="labels in-high">Em alta</div>
-            <a href="conteudo.html?id=8"></a>
-            <div class="watch-now-btn">Assistir Agora</div>
+    <!-- Em Alta -->
+    <div class="content-section">
+        <div class="section-title">🔥 Em Alta</div>
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <div class="video-container">
+                        <a href="conteudo.html">
+                            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.02.19.mp4" autoplay muted></video>
+                        </a>
+                    </div>
+                    <div class="label">Top 1</div>
+                    <a href="conteudo.html" class="watch-now-btn">Continuar Assistindo</a>
+                </div>
+                <div class="carousel-item">
+                    <div class="video-container">
+                        <a href="conteudo.html">
+                            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.03.13.mp4" autoplay muted></video>
+                        </a>
+                    </div>
+                    <div class="label">Top 2</div>
+                    <a href="conteudo.html" class="watch-now-btn">Continuar Assistindo</a>
+                </div>
+                <div class="carousel-item">
+                    <div class="video-container">
+                        <a href="conteudo.html">
+                            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.52.54.mp4" autoplay muted></video>
+                        </a>
+                    </div>
+                    <div class="label">Em Alta</div>
+                    <a href="conteudo.html" class="watch-now-btn">Continuar Assistindo</a>
+                </div>
+                <div class="carousel-item">
+                    <div class="video-container">
+                        <a href="conteudo.html">
+                            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.29.35.mp4" autoplay muted></video>
+                        </a>
+                    </div>
+                    <div class="label">Em Alta</div>
+                    <a href="conteudo.html" class="watch-now-btn">Continuar Assistindo</a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Recomendados Para Você Section -->
-    <div class="section-title">Recomendados Para Você <span class="emoji">💡</span></div>
-    <div class="container">
-        <!-- Video Item 9 -->
-        <div class="video-item">
-            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.11.18.mp4" autoplay muted></video>
-            <div class="labels in-high">Em alta</div>
-            <a href="conteudo.html?id=9"></a>
-            <div class="watch-now-btn">Assistir Agora</div>
-        </div>
-
-        <!-- Video Item 10 -->
-        <div class="video-item">
-            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2011.47.43.mp4" autoplay muted></video>
-            <div class="labels top-2">Top 2</div>
-            <a href="conteudo.html?id=10"></a>
-            <div class="watch-now-btn">Assistir Agora</div>
+    <!-- Recomendados -->
+    <div class="content-section">
+        <div class="section-title">💡 Recomendados</div>
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <div class="video-container">
+                        <a href="conteudo.html">
+                            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.11.18.mp4" autoplay muted></video>
+                        </a>
+                    </div>
+                    <div class="label">Top 1</div>
+                    <a href="conteudo.html" class="watch-now-btn">Continuar Assistindo</a>
+                </div>
+                <div class="carousel-item">
+                    <div class="video-container">
+                        <a href="conteudo.html">
+                            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.14.44.mp4" autoplay muted></video>
+                        </a>
+                    </div>
+                    <div class="label">Top 2</div>
+                    <a href="conteudo.html" class="watch-now-btn">Continuar Assistindo</a>
+                </div>
+                <div class="carousel-item">
+                    <div class="video-container">
+                        <a href="conteudo.html">
+                            <video src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.13.32.mp4" autoplay muted></video>
+                        </a>
+                    </div>
+                    <div class="label">Recomendado</div>
+                    <a href="conteudo.html" class="watch-now-btn">Continuar Assistindo</a>
+                </div>
+            </div>
         </div>
     </div>
+
+</div>
 
 </body>
 </html>
