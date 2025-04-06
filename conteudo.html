@@ -113,7 +113,7 @@
 <body>
     <div class="video-container">
         <video id="video" controls>
-            <source src="https://raw.githubusercontent.com/Thaylaalmsd/spicyaffection/main/WhatsApp%20Video%202025-04-05%20at%2012.02.19.mp4" type="video/mp4">
+            <source id="video-source" type="video/mp4">
             Seu navegador não suporta a tag de vídeo.
         </video>
         <div class="video-overlay">
@@ -143,5 +143,17 @@
     </div>
 
     <a href="index.html" class="btn-back">Voltar para a Página Inicial</a>
+
+    <script>
+        // Recupera o vídeo clicado na página inicial (index.html)
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoSrc = urlParams.get('videoSrc');
+        
+        if (videoSrc) {
+            // Atualiza a fonte do vídeo para o que foi passado na URL
+            document.getElementById('video-source').src = videoSrc;
+            document.getElementById('video').load(); // Carrega o vídeo com a nova fonte
+        }
+    </script>
 </body>
 </html>
