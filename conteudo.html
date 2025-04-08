@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CineDelírio - Conteúdo Exclusivo</title>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1051434310367138');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1051434310367138&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -28,7 +47,6 @@
             transition: filter 0.3s ease;
         }
 
-        /* Não permite que o vídeo fique nítido ao passar o mouse */
         .video-container video:hover {
             filter: blur(10px);
         }
@@ -127,17 +145,17 @@
             <div class="plano">
                 <h4>Plano Semanal</h4>
                 <p>R$ 13,90 / Semana</p>
-                <a href="checkout.html">Assinar</a> <!-- Redirecionamento para checkout -->
+                <a href="checkout.html">Assinar</a>
             </div>
             <div class="plano">
                 <h4>Plano Mensal</h4>
                 <p>R$ 39,90 / Mês</p>
-                <a href="checkout.html">Assinar</a> <!-- Redirecionamento para checkout -->
+                <a href="checkout.html">Assinar</a>
             </div>
             <div class="plano">
                 <h4>Plano Anual</h4>
                 <p>R$ 93,00 / Ano</p>
-                <a href="checkout.html">Assinar</a> <!-- Redirecionamento para checkout -->
+                <a href="checkout.html">Assinar</a>
             </div>
         </div>
     </div>
@@ -145,14 +163,12 @@
     <a href="index.html" class="btn-back">Voltar para a Página Inicial</a>
 
     <script>
-        // Recupera o vídeo clicado na página inicial (index.html)
         const urlParams = new URLSearchParams(window.location.search);
         const videoSrc = urlParams.get('videoSrc');
         
         if (videoSrc) {
-            // Atualiza a fonte do vídeo para o que foi passado na URL
             document.getElementById('video-source').src = videoSrc;
-            document.getElementById('video').load(); // Carrega o vídeo com a nova fonte
+            document.getElementById('video').load();
         }
     </script>
 </body>
